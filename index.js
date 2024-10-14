@@ -9,14 +9,18 @@ import http from 'http';
 
 export const config = {
   databaseURI:
-    process.env.DATABASE_URI || process.env.MONGODB_URI || 'mongodb://localhost:27017/dev',
-  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+    process.env.DATABASE_URI || process.env.MONGODB_URI || 'mongodb://localhost:27017/stone',
+  // cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
+  javascriptKey: process.env.JAVASCRIPT_KEY || '', //Add your master key here. Keep it secret!
+  // restApiKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse', // Don't forget to change to https if needed
-  liveQuery: {
-    classNames: ['Posts', 'Comments'], // List of classes to support for query subscriptions
-  },
+
+  // liveQuery: {
+  //   classNames: ['Posts', 'Comments'], // List of classes to support for query subscriptions
+  // },
+  encodeParseObjectInCloudFunction: true,
 };
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
